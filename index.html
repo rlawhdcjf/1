@@ -80,7 +80,106 @@
     </div>
   </div>
 </div>        
+<div class="container">
+  
+ 
+  <h1>주문서</h1>
+
+  
+
+<form id="orderForm">
+    
+    <
+<label for="name">이름:</label>
+    
+    <
+
+   
+<input type="text" id="name" name="name" required><br><br>
+
+    
+
+   
+
+
+<label for="address">주소:</label>
+    
+    <
+<input type="text" id="address" name="address" required><br><br>
+
+    
+
+<label for="product">상품:</label>
+    
+    <
+<select id="product" name="product" required>
       
+      <
+
+     
+<option value="">상품 선택</option>
+      
+      <
+
+     
+<option value="전기밥솥">전기밥솥</option>
+      
+      <
+<option value="의자">의자</option>
+      <option value="노트북">노트북</option>
+      <option value="고양이">고양이</option>
+      
+     
+<option value="청소기">청소기</option>
+    
+   
+</select><br><br>
+
+    
+
+    <
+
+
+<label for="quantity">수량:</label>
+    
+   
+<input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+    
+
+<button type="button" onclick="generateExcel()">주문서 엑셀로 저장</button>
+  
+ 
+</form>
+
+  
+
+  <
+
+
+ 
+
+
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  
+ 
+<script>
+    function generateExcel() {
+      const form = document.getElementById("orderForm");
+      const formData = new FormData(form);
+
+      // FormData를 JSON 형식으로 변환
+      const jsonData = {};
+      for (const [key, value] of formData.entries()) {
+        jsonData[key] = value;
+      }
+
+      // JSON 데이터로 엑셀 파일 생성
+      const worksheet = xlsx.utils.json_to_sheet([jsonData]);
+      const workbook
+  </div>
+</div>
+</div>
 </body>
 
 </html>
